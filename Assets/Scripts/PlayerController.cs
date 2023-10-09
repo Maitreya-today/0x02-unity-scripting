@@ -63,3 +63,4 @@ public class PlayerController : MonoBehaviour
         health = 5;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+}
