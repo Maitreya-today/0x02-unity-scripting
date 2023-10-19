@@ -1,6 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     private int score = 0;
-    [SerializeField]
-    private IntGameEvent scoreUpdateEvent;
-    [SerializeField]
-    private GameEvent victoryEvent;
     public int health = 5;
 
     private Rigidbody playerRigidBody;
@@ -35,7 +30,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             score++;
-            scoreUpdateEvent.Raise(score);
             Debug.Log("Score: " + score);
             Destroy(other.gameObject);
         }
@@ -51,7 +45,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Goal"))
         {
-            victoryEvent.Raise();
             Debug.Log("You win!");
         }
     }
